@@ -177,7 +177,9 @@ python app.py
 ## 👨‍💻 Author
 
 Freddy Kom
+
 Computer Science Engineering Student
+
 Full Stack Developer
 
 ---
