@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerBoost AI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 0%, #120e2e 0%, #050816 75%);
+      color: white;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #8b5cf6;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #8b5cf6;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(45deg, #8b5cf6, #6d28d9);
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 25px #8b5cf6;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .hero h1 {
+      font-size: 80px;
+      margin-bottom: 20px;
+      background: linear-gradient(to right, #ffffff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 24px;
+      max-width: 900px;
+      color: #cfcfcf;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .upload-box {
+      width: 500px;
+      padding: 40px;
+
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+
+      border-radius: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      box-shadow: 0px 0px 30px rgba(139, 92, 246, 0.3);
+    }
+
+    .upload-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .upload-box input {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+
+      border: none;
+      border-radius: 10px;
+
+      background: #111;
+      color: white;
+    }
+
+    /* AUTOCOMPLETE DROPDOWN SEARCH */
+    .autocomplete-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 10px 0;
+      text-align: left;
+    }
+
+    .autocomplete-wrapper input {
+      width: 100% !important;
+      padding: 15px 40px 15px 15px !important;
+      margin: 0 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      border-radius: 10px !important;
+      background: #111 !important;
+      color: white !important;
+      font-size: 16px !important;
+      outline: none !important;
+      transition: 0.3s !important;
+    }
+
+    .autocomplete-wrapper input:focus {
+      border-color: #8b5cf6 !important;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.5) !important;
+    }
+
+    .dropdown-arrow-icon {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #94a3b8;
+      cursor: pointer;
+      pointer-events: none;
+      transition: transform 0.3s;
+      z-index: 10;
+    }
+
+    .autocomplete-wrapper.active .dropdown-arrow-icon {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .suggestions-dropdown {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      width: 100%;
+      max-height: 220px;
+      overflow-y: auto;
+      background: rgba(15, 15, 25, 0.98) !important;
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(139, 92, 246, 0.15);
+      z-index: 1000;
+      display: none;
+      animation: fadeInDropdown 0.2s ease forwards;
+    }
+
+    @keyframes fadeInDropdown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* suggestions-dropdown scrollbar */
+    .suggestions-dropdown::-webkit-scrollbar {
+      width: 6px;
+    }
+    .suggestions-dropdown::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .suggestions-dropdown::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+    .suggestions-dropdown::-webkit-scrollbar-thumb:hover {
+      background: #8b5cf6;
+    }
+
+    .suggestion-item {
+      padding: 12px 15px;
+      color: #f1f5f9 !important;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.2s;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: left;
+    }
+
+    .suggestion-item:last-child {
+      border-bottom: none;
+    }
+
+    .suggestion-item:hover {
+      background: linear-gradient(90deg, rgba(139, 92, 246, 0.25), rgba(109, 40, 217, 0.45)) !important;
+      color: white !important;
+      padding-left: 20px;
+    }
+
+    .suggestion-item.no-results {
+      color: #94a3b8 !important;
+      font-style: italic;
+      cursor: default;
+      background: transparent !important;
+    }
+
+    /* PROFESSIONAL DRAG & DROP FILE UPLOAD DROPZONE */
+    .upload-dropzone {
+      border: 2px dashed rgba(255, 255, 255, 0.15) !important;
+      border-radius: 16px !important;
+      padding: 30px 20px !important;
+      background: rgba(255, 255, 255, 0.005) !important;
+      cursor: pointer !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 12px !important;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      text-align: center !important;
+      margin: 15px 0 !important;
+    }
+
+    .upload-dropzone:hover,
+    .upload-dropzone.dragover {
+      border-color: #8b5cf6 !important;
+      background: rgba(139, 92, 246, 0.04) !important;
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.2) !important;
+    }
+
+    .upload-dropzone.active {
+      border-color: #10b981 !important;
+      background: rgba(16, 185, 129, 0.03) !important;
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.15) !important;
+    }
+
+    .upload-dropzone i {
+      font-size: 38px !important;
+      color: #94a3b8 !important;
+      transition: 0.3s !important;
+    }
+
+    .upload-dropzone:hover i,
+    .upload-dropzone.dragover i {
+      color: #8b5cf6 !important;
+      transform: scale(1.08) !important;
+    }
+
+    .upload-dropzone.active i {
+      color: #10b981 !important;
+    }
+
+    .upload-dropzone p {
+      font-size: 14px !important;
+      color: #f1f5f9 !important;
+      font-weight: 500 !important;
+      margin: 0 !important;
+    }
+
+    .upload-dropzone small {
+      font-size: 12px !important;
+      color: #94a3b8 !important;
+    }
+
+    .file-preview-container {
+      display: none;
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 8px !important;
+      padding: 10px 15px !important;
+      width: 100% !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 10px !important;
+      margin-top: 5px !important;
+    }
+
+    .file-preview-container i {
+      color: #10b981 !important;
+      font-size: 16px !important;
+    }
+
+    .file-preview-text {
+      font-size: 13px !important;
+      color: #f1f5f9 !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      flex: 1 !important;
+      text-align: left !important;
+    }
+
+    /* PREMIUM NAVBAR & CARD STYLES */
+    .navbar {
+      width: 90% !important;
+      margin: 30px auto !important;
+      padding: 12px 35px !important;
+      background: rgba(10, 10, 15, 0.6) !important;
+      backdrop-filter: blur(25px) !important;
+      -webkit-backdrop-filter: blur(25px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      border-radius: 50px !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+      transition: 0.3s !important;
+    }
+
+    .upload-box {
+      width: min(500px, 95%) !important;
+      padding: 35px !important;
+      background: rgba(255, 255, 255, 0.01) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      border-radius: 24px !important;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5), 0 0 35px rgba(139, 92, 246, 0.15) !important;
+      transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    }
+
+    .upload-box:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 45px rgba(139, 92, 246, 0.25) !important;
+    }
+
+    .feature-card {
+      padding: 30px !important;
+      background: rgba(255, 255, 255, 0.008) !important;
+      backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.04) !important;
+      border-radius: 20px !important;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3) !important;
+      text-align: left !important;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px) !important;
+      border-color: rgba(139, 92, 246, 0.35) !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(139, 92, 246, 0.2) !important;
+    }
+
+    .logo {
+      font-size: 28px !important;
+      letter-spacing: -0.5px !important;
+      font-weight: 800 !important;
+    }
+
+    .logo span {
+      color: #8b5cf6 !important;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.4) !important;
+    }
+
+    /* PREMIUM GLOWING CTA BUTTONS */
+    .btn {
+      font-weight: 600 !important;
+      font-size: 15px !important;
+      border-radius: 12px !important;
+      padding: 10px 24px !important;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
+      box-shadow: 0 4px 15px rgba(139, 92, 246, 0.25) !important;
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    }
+
+    .btn:hover {
+      transform: scale(1.02) !important;
+      box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5), 0 0 15px rgba(139, 92, 246, 0.25) !important;
+    }
+
+    .features {
+      padding: 100px 50px;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 50px;
+      margin-bottom: 60px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .feature-card {
+      padding: 40px;
+
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+
+      border-radius: 20px;
+      transition: 0.4s;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 0px 30px rgba(139, 92, 246, 0.5);
+    }
+
+    .feature-card h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card p {
+      color: #cfcfcf;
+      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* SECTION CONTAINERS & HEADERS */
+    .section-container {
+      padding: 100px 50px 60px 50px !important;
+      max-width: 1300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-header {
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 44px;
+      font-weight: 800;
+      background: linear-gradient(to right, #ffffff, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* HOW IT WORKS / WORKFLOW SECTION */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      position: relative;
+    }
+
+    .workflow-card {
+      background: rgba(255, 255, 255, 0.008) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.04) !important;
+      border-radius: 24px !important;
+      padding: 40px 30px !important;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+
+    .workflow-card:hover {
+      transform: translateY(-8px) !important;
+      border-color: rgba(139, 92, 246, 0.35) !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(139, 92, 246, 0.2) !important;
+    }
+
+    .workflow-step-num {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      font-size: 110px;
+      font-weight: 900;
+      color: rgba(139, 92, 246, 0.04);
+      line-height: 1;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .workflow-card:hover .workflow-step-num {
+      color: rgba(139, 92, 246, 0.08);
+      transform: scale(1.05);
+    }
+
+    .workflow-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(109, 40, 217, 0.05) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+
+    .workflow-icon-box i {
+      font-size: 24px;
+      color: #8b5cf6;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    }
+
+    .workflow-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .workflow-card p {
+      font-size: 15px;
+      color: #cfcfcf;
+      line-height: 1.6;
+    }
+
+    /* HOW PREDICTIONS WORK / ANALYSIS ENGINE SECTION */
+    .engine-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      text-align: left;
+    }
+
+    .engine-card {
+      background: rgba(255, 255, 255, 0.008) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.04) !important;
+      border-radius: 24px !important;
+      padding: 40px !important;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+      position: relative;
+    }
+
+    .engine-card:hover {
+      transform: translateY(-5px) !important;
+      border-color: rgba(139, 92, 246, 0.3) !important;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(139, 92, 246, 0.15) !important;
+    }
+
+    .engine-title-area {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .engine-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(5, 150, 105, 0.05) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .engine-icon.purple {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(109, 40, 217, 0.05) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    .engine-icon i {
+      font-size: 20px;
+      color: #10b981;
+      text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
+    .engine-icon.purple i {
+      color: #8b5cf6;
+      text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    }
+
+    .engine-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .engine-card p {
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .engine-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .engine-details li {
+      position: relative;
+      padding-left: 25px;
+      font-size: 14px;
+      color: #94a3b8;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .engine-details li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #10b981;
+      font-weight: bold;
+    }
+
+    .engine-card:hover .engine-details li::before {
+      text-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+    }
+
+    .engine-card:nth-child(2) .engine-details li::before {
+      color: #8b5cf6;
+    }
+
+    .engine-card:nth-child(2):hover .engine-details li::before {
+      text-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+    }
+
+    /* RESPONSIVE DESIGN FOR NEW SECTIONS */
+    @media (max-width: 992px) {
+      .workflow-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .engine-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section-container {
+        padding: 60px 20px 40px 20px !important;
+      }
+      .section-header h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="navbar">
+
+    <div class="logo">
+      CareerBoost <span>AI</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#how-it-works">Overview</a>
+      <a href="#prediction-engine">Analysis</a>
+      <a href="#features">Features</a>
+    </div>
+
+    <a href="#upload-section" class="btn" style="text-decoration: none; display: inline-block;">
+      Get Started
+    </a>
+
+  </div>
+
+  <section class="hero" id="overview">
+
+    <h1>AI Career Intelligence Platform</h1>
+
+    <p>
+      Analyze resumes, improve ATS score, prepare for interviews,
+      discover missing skills, and get AI-powered career guidance
+      with futuristic analytics dashboards.
+    </p>
+
+    <div class="upload-box" id="upload-section">
+
+      <h2>Upload Resume</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid #ef4444; color: #ef4444; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size: 14px;">
+            {% for message in messages %}
+              <p><i class="fas fa-exclamation-circle"></i> {{ message }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+
+        <!-- Hide the raw input -->
+        <input type="file" name="resume" id="resumeFileInput" accept=".pdf,application/pdf" style="display: none;" required>
+        <!-- Custom Dropzone widget -->
+        <div class="upload-dropzone" id="dropzone">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop your resume PDF here or click to browse</p>
+          <small>Supports PDF format (Max 5MB)</small>
+        </div>
+        <!-- File Preview bubble -->
+        <div class="file-preview-container" id="filePreviewContainer">
+          <i class="fas fa-file-pdf"></i>
+          <span class="file-preview-text" id="filePreviewText">Selected File.pdf</span>
+          <i class="fas fa-times" id="removeFileBtn" style="color: #ef4444; cursor: pointer;"></i>
+        </div>
+
+        <div class="autocomplete-wrapper" id="companyAutocomplete">
+          <input type="text" id="companySearchInput" placeholder="🔍 Search Target Company..." required autocomplete="off" value="Google">
+          <i class="fas fa-chevron-down dropdown-arrow-icon"></i>
+          <input type="hidden" name="company" id="companyHiddenInput" value="Google">
+          <div class="suggestions-dropdown" id="suggestionsDropdown">
+            <div class="suggestion-item" data-value="Google">Google</div>
+            <div class="suggestion-item" data-value="Amazon">Amazon</div>
+            <div class="suggestion-item" data-value="Infosys">Infosys</div>
+            <div class="suggestion-item" data-value="Microsoft">Microsoft</div>
+            <div class="suggestion-item" data-value="Netflix">Netflix</div>
+            <div class="suggestion-item" data-value="Meta">Meta</div>
+            <div class="suggestion-item" data-value="Apple">Apple</div>
+            <div class="suggestion-item" data-value="TCS">TCS</div>
+            <div class="suggestion-item" data-value="JPMorgan">JPMorgan</div>
+            <div class="suggestion-item" data-value="Stripe">Stripe</div>
+            <div class="suggestion-item" data-value="Uber">Uber</div>
+            <div class="suggestion-item" data-value="Airbnb">Airbnb</div>
+            <div class="suggestion-item" data-value="OpenAI">OpenAI</div>
+            <div class="suggestion-item" data-value="SpaceX">SpaceX</div>
+          </div>
+        </div>
+
+        <button class="btn" type="submit">
+          Analyze Resume 🚀
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- OVERVIEW SECTION (HOW IT WORKS) -->
+  <section class="section-container" id="how-it-works">
+    <div class="section-header">
+      <h2>How CareerBoost AI Works</h2>
+      <p>Follow three simple steps to analyze your resume, unlock missing skill recommendations, and accelerate your interview prep.</p>
+    </div>
+    
+    <div class="workflow-grid">
+      <div class="workflow-card">
+        <div class="workflow-step-num">01</div>
+        <div class="workflow-icon-box">
+          <i class="fas fa-cloud-upload-alt"></i>
+        </div>
+        <h3>1. Securely Upload Resume</h3>
+        <p>Drag and drop your resume PDF into our secure smart dropzone. We extract your text on-the-fly with robust PDF extraction engines.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-step-num">02</div>
+        <div class="workflow-icon-box">
+          <i class="fas fa-search-location"></i>
+        </div>
+        <h3>2. Choose Target Company</h3>
+        <p>Select from over 15 top MNCs and high-growth startups (Google, Stripe, OpenAI) to test your profile against their real-world hiring criteria.</p>
+      </div>
+
+      <div class="workflow-card">
+        <div class="workflow-step-num">03</div>
+        <div class="workflow-icon-box">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3>3. Get Dynamic Analytics</h3>
+        <p>Instantly receive your custom ATS score, applicant benchmarks, structured learning roadmaps, and tailored mock interview question sets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANALYSIS SECTION (HOW PREDICTIONS WORK) -->
+  <section class="section-container" id="prediction-engine">
+    <div class="section-header">
+      <h2>AI Prediction & Matching Engine</h2>
+      <p>Discover the engineering and data science behind our high-fidelity resume skill scoring and matching algorithms.</p>
+    </div>
+
+    <div class="engine-grid">
+      <div class="engine-card">
+        <div class="engine-title-area">
+          <div class="engine-icon purple">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Gemini Semantic Evaluation</h3>
+        </div>
+        <p>Unlike standard exact-match scrapers that fail on syntax variations, our integration with Gemini NLP models conducts semantic skill evaluation.</p>
+        <ul class="engine-details">
+          <li><strong>Synonym Mapping:</strong> Recognizes that "Postgres" matches "SQL" and "ReactJS" implies "React".</li>
+          <li><strong>Contextual Understanding:</strong> Evaluates experience depth based on surrounding phrasing rather than mere keyword presence.</li>
+          <li><strong>Acronym Decoding:</strong> Correctly maps shorthand terms to standardized technical categories.</li>
+        </ul>
+      </div>
+
+      <div class="engine-card">
+        <div class="engine-title-area">
+          <div class="engine-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <h3>ATS Scoring & Fallback Architecture</h3>
+        </div>
+        <p>We combine advanced remote neural nets with lightning-fast, secure local fallback matchers to ensure constant availability and accuracy.</p>
+        <ul class="engine-details">
+          <li><strong>Weighted Matching:</strong> Calculates the final score by comparing candidate skill density against benchmark company requirements.</li>
+          <li><strong>Local Substring Scanners:</strong> Triggers seamless fallback scanners instantly if the main NLP model encounters rate limits or downtime.</li>
+          <li><strong>Benchmarked Comparisons:</strong> Ranks your final ATS score against real applicant medians and elite (Top 10%) performance targets.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="section-container" id="features">
+
+    <div class="section-header">
+      <h2>Platform Features</h2>
+      <p>Unlock our suite of intelligent career tools designed to maximize your interview prep and matching success.</p>
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+        <h3>📄 ATS Analyzer</h3>
+        <p>Advanced ATS scoring and resume analysis system.</p>
+      </div>
+
+      <div class="feature-card" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+        <h3>🤖 AI Assistant</h3>
+        <p>Get AI-powered career guidance and preparation tips.</p>
+      </div>
+
+      <div class="feature-card" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+        <h3>🎤 Mock Interview</h3>
+        <p>Practice HR and technical interviews with AI.</p>
+      </div>
+
+      <div class="feature-card" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+        <h3>📊 Skill Analytics</h3>
+        <p>Visual dashboards for skills and missing requirements.</p>
+      </div>
+
+      <div class="feature-card" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+        <h3>🧠 Learning Roadmap</h3>
+        <p>Personalized roadmap for missing technologies.</p>
+      </div>
+
+      <div class="feature-card" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" style="cursor: pointer;">
+        <h3>📚 Interview Intelligence</h3>
+        <p>Company-wise interview preparation and question analysis.</p>
+      </div>
+
+    </div>
+
+  </section>  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const wrapper = document.getElementById("companyAutocomplete");
+      const searchInput = document.getElementById("companySearchInput");
+      const hiddenInput = document.getElementById("companyHiddenInput");
+      const dropdown = document.getElementById("suggestionsDropdown");
+      const items = Array.from(dropdown.getElementsByClassName("suggestion-item"));
+
+      // Show suggestions on click or focus
+      searchInput.addEventListener("focus", () => {
+        dropdown.style.display = "block";
+        wrapper.classList.add("active");
+        searchInput.select(); // Auto-select text on focus
+        filterSuggestions();
+      });
+
+      searchInput.addEventListener("click", (e) => {
+        e.stopPropagation();
+        dropdown.style.display = "block";
+        wrapper.classList.add("active");
+      });
+
+      // Filter as user types
+      searchInput.addEventListener("input", () => {
+        filterSuggestions();
+      });
+
+      function filterSuggestions() {
+        const query = searchInput.value.toLowerCase().trim();
+        let matches = 0;
+
+        // Remove previous "no results" element if it exists
+        const noResults = dropdown.querySelector(".no-results");
+        if (noResults) noResults.remove();
+
+        items.forEach(item => {
+          const val = item.getAttribute("data-value").toLowerCase();
+          if (val.includes(query)) {
+            item.style.display = "block";
+            matches++;
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+        if (matches === 0) {
+          const div = document.createElement("div");
+          div.className = "suggestion-item no-results";
+          div.textContent = "No companies found";
+          dropdown.appendChild(div);
+        }
+      }
+
+      // Handle item click selection
+      items.forEach(item => {
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const selectedVal = item.getAttribute("data-value");
+          searchInput.value = selectedVal;
+          hiddenInput.value = selectedVal;
+          dropdown.style.display = "none";
+          wrapper.classList.remove("active");
+        });
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!wrapper.contains(e.target)) {
+          dropdown.style.display = "none";
+          wrapper.classList.remove("active");
+          
+          // Revert search input to hidden value if left invalid
+          const currentVal = hiddenInput.value;
+          const isValid = items.some(item => item.getAttribute("data-value") === searchInput.value);
+          if (!isValid) {
+            searchInput.value = currentVal;
+          }
+        }
+      });
+
+      // Drag and Drop File Upload
+      const fileInput = document.getElementById("resumeFileInput");
+      const dropzone = document.getElementById("dropzone");
+      const previewContainer = document.getElementById("filePreviewContainer");
+      const previewText = document.getElementById("filePreviewText");
+      const removeBtn = document.getElementById("removeFileBtn");
+
+      // Trigger file dialog on dropzone click
+      dropzone.addEventListener("click", () => {
+        fileInput.click();
+      });
+
+      // Highlight dropzone on drag events
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.add("dragover");
+        }, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropzone.addEventListener(eventName, (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          dropzone.classList.remove("dragover");
+        }, false);
+      });
+
+      // Handle dropped files
+      dropzone.addEventListener("drop", (e) => {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        if (files && files.length > 0) {
+          fileInput.files = files;
+          handleFileSelection(files[0]);
+        }
+      });
+
+      // Handle selected files from dialog
+      fileInput.addEventListener("change", (e) => {
+        if (fileInput.files && fileInput.files.length > 0) {
+          handleFileSelection(fileInput.files[0]);
+        }
+      });
+
+      function handleFileSelection(file) {
+        if (file) {
+          // Verify it's a PDF
+          if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+            alert("Please select a PDF file.");
+            clearFileSelection();
+            return;
+          }
+          // Verify size under 5MB
+          if (file.size > 5 * 1024 * 1024) {
+            alert("File is too large. Maximum size is 5MB.");
+            clearFileSelection();
+            return;
+          }
+
+          previewText.textContent = file.name;
+          previewContainer.style.display = "flex";
+          dropzone.style.display = "none";
+          dropzone.classList.add("active");
+        }
+      }
+
+      // Remove file selection
+      removeBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        clearFileSelection();
+      });
+
+      function clearFileSelection() {
+        fileInput.value = "";
+        previewText.textContent = "";
+        previewContainer.style.display = "none";
+        dropzone.style.display = "flex";
+        dropzone.classList.remove("active");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

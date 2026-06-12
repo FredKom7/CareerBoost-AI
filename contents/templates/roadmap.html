@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Roadmap | CareerBoost AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050816;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139, 92, 246, 0.4);
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --beginner: #10b981;
+            --intermediate: #f59e0b;
+            --advanced: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Roadmap Navigation */
+        .skill-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .skill-btn {
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: var(--text);
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .skill-btn.active {
+            background: var(--accent);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Roadmap Grid */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .roadmap-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .roadmap-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px var(--accent-glow);
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .badge-beginner { background: rgba(16, 185, 129, 0.1); color: var(--beginner); border: 1px solid var(--beginner); }
+        .badge-intermediate { background: rgba(245, 158, 11, 0.1); color: var(--intermediate); border: 1px solid var(--intermediate); }
+        .badge-advanced { background: rgba(239, 68, 68, 0.1); color: var(--advanced); border: 1px solid var(--advanced); }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .steps-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .steps-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .steps-list li i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .card-footer {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .resource-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .resource-btn:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .platforms {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .platform-tag {
+            padding: 4px 10px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        /* Timeline UI */
+        .timeline-container {
+            margin-top: 20px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            height: 100%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn:hover {
+            border-color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .roadmap-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .roadmap-card:nth-child(2) { animation-delay: 0.2s; }
+        .roadmap-card:nth-child(3) { animation-delay: 0.4s; }
+
+        .skill-section {
+            display: none;
+        }
+
+        .skill-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/dashboard" class="back-btn"><i class="fas fa-arrow-left"></i> Dashboard</a>
+
+    <div class="container">
+        <header>
+            <h1>Personalized <span>Roadmap</span></h1>
+            <p class="subtitle">Tailored path to bridge your skill gaps and ace your career.</p>
+        </header>
+
+        {% if roadmap %}
+        <div class="skill-selector">
+            {% for skill, data in roadmap.items() %}
+            <button class="skill-btn {% if loop.first %}active{% endif %}" onclick="showSkill('{{ skill }}', this)">
+                {{ skill }}
+            </button>
+            {% endfor %}
+        </div>
+
+        {% if is_perfect_match %}
+        <div class="roadmap-card" style="margin-bottom: 40px; text-align: center; border-color: #10b981; background: rgba(16, 185, 129, 0.04); animation: fadeIn 0.6s ease;">
+            <i class="fas fa-trophy" style="font-size: 2.8rem; color: #10b981; margin-bottom: 12px; text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);"></i>
+            <h2 style="color: #10b981; font-weight: 700; font-size: 1.8rem; margin-bottom: 8px;">Perfect Match!</h2>
+            <p style="color: #cfcfcf; max-width: 650px; margin: 0 auto 10px auto; line-height: 1.5; font-size: 0.95rem;">
+                Congratulations! Your resume successfully matches all the required skills for <strong>{{ company }}</strong>. 
+                You have no critical gaps to bridge, but you can review these matched competencies below to prepare for your interviews.
+            </p>
+        </div>
+        {% endif %}
+
+        {% for skill, levels in roadmap.items() %}
+        <div id="skill-{{ skill }}" class="skill-section {% if loop.first %}active{% endif %}">
+            <div class="roadmap-grid">
+                
+                <!-- BEGINNER -->
+                <div class="roadmap-card">
+                    <span class="level-badge badge-beginner">Phase 1</span>
+                    <h3 class="card-title"><i class="fas fa-seedling"></i> Beginner</h3>
+                    <ul class="steps-list">
+                        {% for step in levels.Beginner.steps %}
+                        <li><i class="fas fa-check-circle"></i> {{ step }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="card-footer">
+                        <div class="meta-info">
+                            <span><i class="far fa-clock"></i> {{ levels.Beginner.duration }}</span>
+                            <span><i class="fas fa-graduation-cap"></i> Fundamentals</span>
+                        </div>
+                        <a href="{{ levels.Beginner.youtube }}" target="_blank" class="resource-btn">
+                            <i class="fab fa-youtube"></i> Watch Tutorial
+                        </a>
+                        <div class="platforms">
+                            {% for platform in levels.Beginner.platforms %}
+                            <span class="platform-tag">{{ platform }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Courses & Books Section -->
+                        <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; text-align: left;">
+                            {% if levels.Beginner.courses %}
+                            <div class="recommended-courses">
+                                <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-graduation-cap" style="color: var(--beginner);"></i> Recommended Course</h4>
+                                {% for course in levels.Beginner.courses %}
+                                <a href="{{ course.url }}" target="_blank" style="color: white; text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.color='var(--beginner)'" onmouseout="this.style.color='white'">
+                                    <i class="fas fa-external-link-alt" style="font-size: 0.75rem; color: var(--beginner);"></i>
+                                    <span>{{ course.title }} ({{ course.platform }})</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if levels.Beginner.books %}
+                            <div class="recommended-books" style="margin-top: 5px;">
+                                <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-book" style="color: var(--beginner);"></i> Core Reference Book</h4>
+                                {% for book in levels.Beginner.books %}
+                                <div style="font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: #cfcfcf;">
+                                    <i class="fas fa-bookmark" style="font-size: 0.75rem; color: var(--beginner);"></i>
+                                    <span><strong>"{{ book.title }}"</strong> by {{ book.author }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="timeline-container" style="margin-top: 15px;">
+                            <div class="timeline-progress" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- INTERMEDIATE -->
+                <div class="roadmap-card">
+                    <span class="level-badge badge-intermediate">Phase 2</span>
+                    <h3 class="card-title"><i class="fas fa-bolt"></i> Intermediate</h3>
+                    <ul class="steps-list">
+                        {% for step in levels.Intermediate.steps %}
+                        <li><i class="fas fa-check-circle"></i> {{ step }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="card-footer">
+                        <div class="meta-info">
+                            <span><i class="far fa-clock"></i> {{ levels.Intermediate.duration }}</span>
+                            <span><i class="fas fa-code-branch"></i> Core Mastery</span>
+                        </div>
+                        <a href="{{ levels.Intermediate.youtube }}" target="_blank" class="resource-btn">
+                            <i class="fab fa-youtube"></i> Watch Tutorial
+                        </a>
+                        <div class="platforms">
+                            {% for platform in levels.Intermediate.platforms %}
+                            <span class="platform-tag">{{ platform }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Courses & Books Section -->
+                        <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; text-align: left;">
+                            {% if levels.Intermediate.courses %}
+                            <div class="recommended-courses">
+                                <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-graduation-cap" style="color: var(--intermediate);"></i> Recommended Course</h4>
+                                {% for course in levels.Intermediate.courses %}
+                                <a href="{{ course.url }}" target="_blank" style="color: white; text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.color='var(--intermediate)'" onmouseout="this.style.color='white'">
+                                    <i class="fas fa-external-link-alt" style="font-size: 0.75rem; color: var(--intermediate);"></i>
+                                    <span>{{ course.title }} ({{ course.platform }})</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if levels.Intermediate.books %}
+                            <div class="recommended-books" style="margin-top: 5px;">
+                                <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-book" style="color: var(--intermediate);"></i> Core Reference Book</h4>
+                                {% for book in levels.Intermediate.books %}
+                                <div style="font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: #cfcfcf;">
+                                    <i class="fas fa-bookmark" style="font-size: 0.75rem; color: var(--intermediate);"></i>
+                                    <span><strong>"{{ book.title }}"</strong> by {{ book.author }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="timeline-container" style="margin-top: 15px;">
+                            <div class="timeline-progress" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ADVANCED -->
+                <div class="roadmap-card">
+                    <span class="level-badge badge-advanced">Phase 3</span>
+                    <h3 class="card-title"><i class="fas fa-crown"></i> Advanced</h3>
+                    <ul class="steps-list">
+                        {% for step in levels.Advanced.steps %}
+                        <li><i class="fas fa-check-circle"></i> {{ step }}</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="card-footer">
+                        <div class="meta-info">
+                            <span><i class="far fa-clock"></i> {{ levels.Advanced.duration }}</span>
+                            <span><i class="fas fa-trophy"></i> Pro Level</span>
+                        </div>
+                        <a href="{{ levels.Advanced.youtube }}" target="_blank" class="resource-btn">
+                            <i class="fab fa-youtube"></i> Watch Tutorial
+                        </a>
+                        <div class="platforms">
+                            {% for platform in levels.Advanced.platforms %}
+                            <span class="platform-tag">{{ platform }}</span>
+                            {% endfor %}
+                        </div>
+
+                        <!-- Courses & Books Section -->
+                        <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; text-align: left;">
+                            {% if levels.Advanced.courses %}
+                            <div class="recommended-courses">
+                                <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-graduation-cap" style="color: var(--advanced);"></i> Recommended Course</h4>
+                                {% for course in levels.Advanced.courses %}
+                                <a href="{{ course.url }}" target="_blank" style="color: white; text-decoration: none; font-size: 0.85rem; display: flex; align-items: center; gap: 8px; transition: 0.2s;" onmouseover="this.style.color='var(--advanced)'" onmouseout="this.style.color='white'">
+                                    <i class="fas fa-external-link-alt" style="font-size: 0.75rem; color: var(--advanced);"></i>
+                                    <span>{{ course.title }} ({{ course.platform }})</span>
+                                </a>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+
+                            {% if levels.Advanced.books %}
+                            <div class="recommended-books" style="margin-top: 5px;">
+                                <h4 style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;"><i class="fas fa-book" style="color: var(--advanced);"></i> Core Reference Book</h4>
+                                {% for book in levels.Advanced.books %}
+                                <div style="font-size: 0.85rem; display: flex; align-items: center; gap: 8px; color: #cfcfcf;">
+                                    <i class="fas fa-bookmark" style="font-size: 0.75rem; color: var(--advanced);"></i>
+                                    <span><strong>"{{ book.title }}"</strong> by {{ book.author }}</span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <div class="timeline-container" style="margin-top: 15px;">
+                            <div class="timeline-progress" style="width: 30%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="roadmap-card" style="text-align: center; border-color: var(--accent); background: rgba(139, 92, 246, 0.03); margin-top: 20px; padding: 60px 40px; animation: fadeIn 0.6s ease;">
+            <i class="fas fa-folder-open" style="font-size: 3.5rem; color: var(--accent); margin-bottom: 20px; text-shadow: 0 0 15px var(--accent-glow);"></i>
+            <h2 style="color: white; font-weight: 700; font-size: 1.8rem; margin-bottom: 10px;">No Skills Selected</h2>
+            <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 20px auto; line-height: 1.5;">
+                We couldn't find any skill analysis records in your current session. Please upload your resume on the dashboard to analyze your alignment.
+            </p>
+            <a href="/" class="resource-btn" style="display: inline-flex; width: auto; padding: 12px 35px; background: var(--accent);">
+                <i class="fas fa-arrow-left"></i> Go to Dashboard
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        function showSkill(skill, btn) {
+            // Update buttons
+            document.querySelectorAll('.skill-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Update sections
+            document.querySelectorAll('.skill-section').forEach(s => s.classList.remove('active'));
+            document.getElementById('skill-' + skill).classList.add('active');
+        }
+    </script>
+</body>
+</html>

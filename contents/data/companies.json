@@ -1,0 +1,44 @@
+{
+  "Google": {
+    "skills": ["Python", "Data Structures", "Algorithms", "System Design"]
+  },
+  "Amazon": {
+    "skills": ["Java", "AWS", "SQL", "Data Structures"]
+  },
+  "Infosys": {
+    "skills": ["Java", "SQL", "Communication"]
+  },
+  "Microsoft": {
+    "skills": ["Java", "AWS", "Algorithms", "System Design"]
+  },
+  "Netflix": {
+    "skills": ["Java", "React", "SQL", "System Design"]
+  },
+  "Meta": {
+    "skills": ["Python", "React", "Algorithms", "System Design"]
+  },
+  "Apple": {
+    "skills": ["Python", "SQL", "Algorithms", "System Design"]
+  },
+  "TCS": {
+    "skills": ["Java", "SQL", "Python", "Communication"]
+  },
+  "JPMorgan": {
+    "skills": ["Java", "SQL", "Communication"]
+  },
+  "Stripe": {
+    "skills": ["React", "SQL", "System Design"]
+  },
+  "Uber": {
+    "skills": ["Java", "Algorithms", "System Design"]
+  },
+  "Airbnb": {
+    "skills": ["React", "SQL", "Algorithms", "System Design"]
+  },
+  "OpenAI": {
+    "skills": ["Python", "Machine Learning", "Algorithms", "System Design"]
+  },
+  "SpaceX": {
+    "skills": ["Python", "Algorithms", "System Design"]
+  }
+}

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Intelligence | CareerBoost AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050816;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #00d1ff;
+            --accent-glow: rgba(0, 209, 255, 0.4);
+            --text: #ffffff;
+            --text-muted: #94a3b8;
+            --google: #4285F4;
+            --amazon: #FF9900;
+            --infosys: #007CC3;
+        }
+
+        .company-logo-Google { color: var(--google); }
+        .company-logo-Amazon { color: var(--amazon); }
+        .company-logo-Infosys { color: var(--infosys); }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        select {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            outline: none;
+            cursor: pointer;
+            min-width: 150px;
+        }
+
+        select option {
+            background-color: #0c0f24;
+            color: white;
+        }
+
+        /* Company Grid */
+        .company-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .company-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 900px) {
+            .company-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .company-sidebar {
+            padding: 30px;
+            background: rgba(255,255,255,0.02);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .company-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .company-main {
+            padding: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active {
+            color: var(--accent);
+            position: relative;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .question-list {
+            list-style: none;
+        }
+
+        .question-item {
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .question-item:hover {
+            border-color: var(--accent);
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .tag-technical { background: rgba(0, 209, 255, 0.1); color: var(--accent); }
+        .tag-hr { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+        .pattern-box {
+            padding: 15px;
+            background: rgba(139, 92, 246, 0.05);
+            border-left: 4px solid #8b5cf6;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .rejection-list {
+            color: #ef4444;
+            font-size: 0.9rem;
+            list-style: none;
+        }
+
+        .rejection-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/dashboard" class="back-btn"><i class="fas fa-arrow-left"></i> Dashboard</a>
+
+    <div class="container">
+        <header>
+            <h1>Interview <span>Intelligence</span></h1>
+            <p style="color: var(--text-muted);">Master company-specific interview patterns and repeated questions.</p>
+        </header>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label>Company</label>
+                <select onchange="filterCompany(this.value)">
+                    <option value="all">All Companies</option>
+                    {% for name in companies.keys() %}
+                    <option value="{{ name }}">{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Difficulty</label>
+                <select>
+                    <option>All Levels</option>
+                    <option>Entry Level</option>
+                    <option>Mid-Senior</option>
+                    <option>Architect</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Interview Type</label>
+                <select>
+                    <option>All Rounds</option>
+                    <option>Technical</option>
+                    <option>Behavioral</option>
+                    <option>System Design</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="company-grid">
+            {% for name, data in companies.items() %}
+            <div class="company-card" data-company="{{ name }}">
+                <div class="company-sidebar">
+                    <div class="company-logo company-logo-{{ name }}">
+                        <i class="fab fa-{{ name|lower if name != 'Infosys' else 'digital-ocean' }}"></i>
+                        {{ name }}
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">PREP STRATEGY</h4>
+                        <p style="font-size: 0.85rem; line-height: 1.5;">{{ data.strategy }}</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.8rem; color: #ef4444; margin-bottom: 10px;">COMMON REJECTIONS</h4>
+                        <ul class="rejection-list">
+                            {% for reason in data.rejection_reasons %}
+                            <li><i class="fas fa-times-circle"></i> {{ reason }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="company-main">
+                    <div class="pattern-box">
+                        <strong><i class="fas fa-info-circle"></i> Interview Pattern (2024-25):</strong><br>
+                        {{ data.patterns }}
+                    </div>
+
+                    <div class="tabs">
+                        <button class="tab-btn active" onclick="switchTab(this, 'tech-{{ name }}')">Technical</button>
+                        <button class="tab-btn" onclick="switchTab(this, 'hr-{{ name }}')">HR & Behavioral</button>
+                        <button class="tab-btn" onclick="switchTab(this, 'coding-{{ name }}')">Coding Topics</button>
+                        <button class="tab-btn" onclick="switchTab(this, 'gd-{{ name }}')">GD Topics</button>
+                    </div>
+
+                    <div id="tech-{{ name }}" class="tab-content active">
+                        <ul class="question-list">
+                            {% for q in data.technical %}
+                            <li class="question-item">
+                                <span>{{ q }}</span>
+                                <span class="tag tag-technical">Technical</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div id="hr-{{ name }}" class="tab-content">
+                        <ul class="question-list">
+                            {% for q in data.hr %}
+                            <li class="question-item">
+                                <span>{{ q }}</span>
+                                <span class="tag tag-hr">HR</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <div id="coding-{{ name }}" class="tab-content">
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                            {% for topic in data.coding_topics %}
+                            <span class="platform-tag" style="padding: 10px 15px; background: rgba(0, 209, 255, 0.05); border: 1px solid var(--accent); border-radius: 8px; font-size: 0.9rem; color: var(--accent);">{{ topic }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id="gd-{{ name }}" class="tab-content">
+                        <ul class="question-list">
+                            {% for topic in data.gd %}
+                            <li class="question-item">{{ topic }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        function switchTab(btn, tabId) {
+            const container = btn.closest('.company-main');
+            container.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function filterCompany(company) {
+            document.querySelectorAll('.company-card').forEach(card => {
+                if (company === 'all' || card.dataset.company === company) {
+                    card.style.display = 'grid';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

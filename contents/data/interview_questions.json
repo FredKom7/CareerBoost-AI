@@ -1,0 +1,296 @@
+{
+  "Google": {
+    "patterns": "Focused on Data Structures & Algorithms, Open-ended problem solving, and Googleiness (culture fit).",
+    "strategy": "Master LeetCode Medium/Hard. Practice thinking out loud. Study System Design for L4+ roles.",
+    "rejection_reasons": ["Weak coding speed", "Poor communication of thought process", "Lack of scalability in design answers"],
+    "technical": [
+      "How would you implement a distributed cache?",
+      "Explain the working of Google Search indexing.",
+      "Given a large stream of data, find the top K frequent elements."
+    ],
+    "hr": [
+      "Why Google?",
+      "Tell me about a time you had a conflict with a teammate.",
+      "How do you handle ambiguity in projects?"
+    ],
+    "gd": [
+      "Is AI a threat to software engineering jobs?",
+      "Privacy vs. Convenience in the digital age."
+    ],
+    "coding_topics": ["Dynamic Programming", "Graph Algorithms", "Tries", "Segment Trees"],
+    "concepts": ["Big O Analysis", "MapReduce", "Consistency Models (CAP Theorem)"]
+  },
+  "Amazon": {
+    "patterns": "Heavy emphasis on Leadership Principles. 2-3 coding rounds and a Bar Raiser round.",
+    "strategy": "Prepare 2 stories for each of the 14 Leadership Principles using STAR method. Practice LLD/HLD.",
+    "rejection_reasons": ["Failing the Bar Raiser round", "Not demonstrating 'Ownership' or 'Dive Deep'", "Suboptimal coding solutions"],
+    "technical": [
+      "Design an Amazon-scale notification system.",
+      "Find the first non-repeating character in a stream.",
+      "Implement a LRU Cache."
+    ],
+    "hr": [
+      "Tell me about a time you failed and what you learned.",
+      "Describe a time you went above and beyond for a customer.",
+      "How have you handled a difficult stakeholder?"
+    ],
+    "gd": [
+      "E-commerce impact on small businesses.",
+      "Sustainability in global supply chains."
+    ],
+    "coding_topics": ["Heaps", "Priority Queues", "Sliding Window", "Trees"],
+    "concepts": ["Microservices", "Load Balancing", "NoSQL vs SQL"]
+  },
+  "Infosys": {
+    "patterns": "Initial aptitude test followed by Technical and HR rounds. Focus on basics and projects.",
+    "strategy": "Brush up on OOPs, DBMS, and OS. Be ready to explain your final year project in detail.",
+    "rejection_reasons": ["Weak foundational knowledge", "Poor project explanation", "Communication gaps"],
+    "technical": [
+      "What is the difference between Abstraction and Encapsulation?",
+      "Explain different types of Joins in SQL.",
+      "Write a program to check for Prime numbers."
+    ],
+    "hr": [
+      "Why do you want to join Infosys?",
+      "Are you willing to relocate?",
+      "Where do you see yourself in 5 years?"
+    ],
+    "gd": [
+      "Work from home vs Work from office.",
+      "Digital India initiative."
+    ],
+    "coding_topics": ["Strings", "Arrays", "Basic Sorting", "Recursion"],
+    "concepts": ["SDLC Models", "ACID Properties", "Normalization"]
+  },
+  "Microsoft": {
+    "patterns": "Focused on coding accuracy, robust edge-case handling, and architectural fundamentals.",
+    "strategy": "Master Trees, Graphs, and System Design. Practice writing production-ready, highly readable code.",
+    "rejection_reasons": ["Missing edge cases", "Suboptimal memory optimization", "Weak understanding of OS/threading"],
+    "technical": [
+      "How would you design a cloud-based document sharing service like OneDrive?",
+      "Write a function to detect if a binary tree is balanced.",
+      "Explain the differences between processes, threads, and coroutines."
+    ],
+    "hr": [
+      "Why Microsoft?",
+      "Describe a time you had to adapt to a sudden change in project requirements.",
+      "How do you ensure accessibility in the software you build?"
+    ],
+    "gd": [
+      "The role of tech giants in ethical AI deployment.",
+      "Are hybrid work cultures sustainable long-term?"
+    ],
+    "coding_topics": ["Binary Trees", "Graphs", "Linked Lists", "Bit Manipulation"],
+    "concepts": ["Virtualization", "Asynchronous Programming", "Thread Safety"]
+  },
+  "Netflix": {
+    "patterns": "Heavy emphasis on cultural alignment (Netflix Keeper Test), system scalability, and freedom & responsibility.",
+    "strategy": "Read the Netflix Culture Deck thoroughly. Master microservices design and highly scalable caching structures.",
+    "rejection_reasons": ["Cultural mismatch", "Poor understanding of distributed caching", "Suboptimal microservices isolation"],
+    "technical": [
+      "How would you design a video streaming delivery network supporting millions of concurrent users?",
+      "Explain how you would handle network latency and packet loss in real-time video chunk rendering.",
+      "Implement a system that tracks user video progress and generates real-time recommendations."
+    ],
+    "hr": [
+      "How do you handle receiving critical constructive feedback?",
+      "Tell me about a time you made a major mistake at work and how you communicated it.",
+      "What does 'freedom and responsibility' mean to you?"
+    ],
+    "gd": [
+      "Net neutrality and its impact on digital streaming platforms.",
+      "Is personalized algorithm content isolating users?"
+    ],
+    "coding_topics": ["Sliding Window", "Heaps", "Hash Tables", "Breadth-First Search"],
+    "concepts": ["CDN Routing", "Eventual Consistency", "Chaos Engineering"]
+  },
+  "Meta": {
+    "patterns": "Extremely fast-paced coding rounds (expecting 2 Medium problems in 45 minutes) and a strong behavioral 'Jedi' round.",
+    "strategy": "Practice speed-coding. Master Facebook-tagged LeetCode problems. Focus heavily on scale-out system design.",
+    "rejection_reasons": ["Coding speed too slow", "Weak architectural scaling foundation", "Lack of proactive collaboration indicators"],
+    "technical": [
+      "How would you design a global social graph system supporting billions of connections?",
+      "Given a binary tree, print its vertical order traversal.",
+      "Explain how you would implement a highly scalable News Feed system."
+    ],
+    "hr": [
+      "Tell me about your most challenging technical project and how you drove it.",
+      "How do you prioritize tasks when you have multiple competing deadlines?",
+      "Describe a time you had to work with someone who had a completely different working style."
+    ],
+    "gd": [
+      "Social media regulations vs. freedom of speech.",
+      "The feasibility of the Metaverse in daily commerce."
+    ],
+    "coding_topics": ["Graph Traversals", "Binary Search", "Two Pointers", "Tries"],
+    "concepts": ["Data Sharding", "Caching Layers", "Graph Databases"]
+  },
+  "Apple": {
+    "patterns": "Highly secretive and deep technical rounds. Expect extreme focus on hardware-software integration, low-level optimization, and design perfection.",
+    "strategy": "Master low-level programming, memory management, and elegant UI architecture. Show intense passion for detail.",
+    "rejection_reasons": ["Lack of detail orientation", "Suboptimal memory management explanations", "Weak low-level hardware-software knowledge"],
+    "technical": [
+      "How would you optimize a memory-constrained embedded system?",
+      "Design a highly efficient client-side caching layer for an iOS application.",
+      "Explain how a CPU cache hierarchy works and how it affects code optimization."
+    ],
+    "hr": [
+      "What is your favorite Apple product and how would you improve it?",
+      "Tell me about a time you refused to compromise on the quality of your work.",
+      "How do you manage stress and tight deadlines when launching secretive projects?"
+    ],
+    "gd": [
+      "Consumer privacy rights vs. law enforcement requests for data.",
+      "Is hardware innovation slowing down compared to software?"
+    ],
+    "coding_topics": ["Pointers & Memory", "Basic Sorting", "Arrays", "Recursion"],
+    "concepts": ["CPU Caching", "Memory Leak Prevention", "Multithreading"]
+  },
+  "TCS": {
+    "patterns": "Standard aptitude test followed by technical, managerial, and HR interview rounds. Focus on academic basics and project overview.",
+    "strategy": "Brush up on DBMS, Software Engineering lifecycle, and basic programming algorithms. Be clear about your resume claims.",
+    "rejection_reasons": ["Lack of basic coding clarity", "Weak communication", "Unfamiliarity with final year project"],
+    "technical": [
+      "What is the difference between primary keys and unique keys in SQL?",
+      "Explain the four main pillars of Object-Oriented Programming (OOPs).",
+      "Write a basic program to check if a string is a palindrome."
+    ],
+    "hr": [
+      "Why do you want to start your career with TCS?",
+      "Are you open to working night shifts and relocations?",
+      "How do you handle working in large teams?"
+    ],
+    "gd": [
+      "Digital transformation's impact on employment in developing countries.",
+      "Smart Cities: Pros and Cons."
+    ],
+    "coding_topics": ["Arrays", "Strings", "Sorting", "Basic Math Algorithms"],
+    "concepts": ["SDLC Models", "Database Normalization", "OOP Fundamentals"]
+  },
+  "JPMorgan": {
+    "patterns": "Focuses on financial system fundamentals, clean coding standards, Spring Boot architecture, and databases.",
+    "strategy": "Master Core Java, Spring Framework, SQL queries, and transactional safety. Practice explaining final year projects.",
+    "rejection_reasons": ["Weak Core Java knowledge", "Suboptimal database design answers", "Lack of transactional security understanding"],
+    "technical": [
+      "What are the ACID properties in databases, and how do they ensure transactional safety?",
+      "Explain the Spring Boot dependency injection and bean lifecycle.",
+      "How would you ensure thread safety when implementing a banking transaction ledger?"
+    ],
+    "hr": [
+      "Why financial technology (FinTech)?",
+      "Describe a situation where you noticed an error in a project and how you resolved it.",
+      "How do you stay updated with emerging technologies?"
+    ],
+    "gd": [
+      "Will digital currencies completely replace paper money?",
+      "The role of AI in banking fraud detection."
+    ],
+    "coding_topics": ["Linked Lists", "Hash Maps", "Sorting", "Arrays"],
+    "concepts": ["ACID Transactions", "Concurrency Controls", "REST API Standards"]
+  },
+  "Stripe": {
+    "patterns": "Extremely pragmatic interview rounds. Focus on writing clean integration code, working with APIs, and reading/debugging codebase code rather than LeetCode puzzles.",
+    "strategy": "Practice working with JSON APIs, HTTP status codes, robust error handling, and writing clean, testable system code.",
+    "rejection_reasons": ["Writing messy, hard-to-read integration code", "Poor handling of HTTP error edge cases", "Weak understanding of API design principles"],
+    "technical": [
+      "Design and implement a robust webhook delivery manager.",
+      "Write a clean integration function that parses complex JSON payouts and handles API rate limits.",
+      "How would you design a payment transaction ledger keeping eventual consistency in mind?"
+    ],
+    "hr": [
+      "Why Stripe?",
+      "Tell me about a time you had to write documentation or explain a complex technical concept to a non-technical stakeholder.",
+      "What is your approach to resolving bugs reported by active customers?"
+    ],
+    "gd": [
+      "The future of global cross-border digital payments.",
+      "Cryptocurrency: Speculative asset vs. viable global utility."
+    ],
+    "coding_topics": ["JSON Parsing", "String manipulations", "Hash Maps", "Error Handling"],
+    "concepts": ["Idempotency", "API Rate Limiting", "Webhook Architecture"]
+  },
+  "Uber": {
+    "patterns": "Focuses heavily on dynamic system scale, concurrency, low-latency algorithms, and strict System Design.",
+    "strategy": "Master real-time geospatial designs (Quadtrees/H3 index). Focus heavily on low-latency messaging queues and concurrency.",
+    "rejection_reasons": ["Inability to scale architectures under heavy loads", "Weak concurrency safety", "Poor algorithmic optimizations"],
+    "technical": [
+      "How would you design a low-latency dispatcher system that matches riders to drivers in real time?",
+      "Explain how a geospatial search quadtree index works for location tracking.",
+      "Design a highly concurrent distributed rate limiter."
+    ],
+    "hr": [
+      "How do you handle severe customer dissatisfaction?",
+      "Describe a time you argued for a specific architectural decision and how you reached a consensus.",
+      "What motivates you to work on low-latency, real-time dispatch systems?"
+    ],
+    "gd": [
+      "Autonomous vehicles: The ethical implications of driving AI.",
+      "Gig economy: Opportunity for flexibility vs. lack of job security."
+    ],
+    "coding_topics": ["Heaps", "Priority Queues", "Graph Traversals", "Segment Trees"],
+    "concepts": ["Geospatial Indexing", "WebSockets Concurrency", "Message Queuing"]
+  },
+  "Airbnb": {
+    "patterns": "High emphasis on UI excellence, clean architectural components, structural design patterns, and scaling.",
+    "strategy": "Master React framework, CSS layout architectures, data rendering optimizations, and general System Design.",
+    "rejection_reasons": ["Poor front-end architectural layout choices", "Suboptimal rendering optimization", "Lack of aesthetic appreciation in UI build tasks"],
+    "technical": [
+      "How would you optimize search result rendering on a page with map layouts and dynamic filters?",
+      "Design a highly scalable global booking and availability calendar service.",
+      "Explain the virtual DOM rendering lifecycle and how to prevent unnecessary renders."
+    ],
+    "hr": [
+      "What does 'belonging' mean to you in a workplace?",
+      "Describe a project where you went above and beyond to make the user interface beautiful and seamless.",
+      "Tell me about a time you disagreed with a product designer and how you resolved it."
+    ],
+    "gd": [
+      "The impact of short-term rentals on local housing markets.",
+      "Has tourism become more accessible due to online marketplace platforms?"
+    ],
+    "coding_topics": ["React Hooks", "State Management", "Arrays & Matrices", "Sliding Window"],
+    "concepts": ["Virtual DOM Optimizations", "Distributed Lock Managers", "Client-Side Caching"]
+  },
+  "OpenAI": {
+    "patterns": "Strong focus on mathematics, ML scaling limits, PyTorch, algorithmic optimization, and high-performance computation.",
+    "strategy": "Master Machine Learning core math, deep learning model architectures (Transformers), and deep Python/C++ optimization.",
+    "rejection_reasons": ["Weak mathematical model foundations", "Lack of experience in scaling distributed training", "Poor low-level CPU/GPU performance coding skills"],
+    "technical": [
+      "How would you optimize the distributed training of a multi-billion parameter model across multiple GPUs?",
+      "Explain the mathematical framework and backpropagation inside a standard Transformer attention layer.",
+      "Given a resource-constrained hardware framework, how would you design an efficient inference engine?"
+    ],
+    "hr": [
+      "How do you view the ethical implications of artificial general intelligence (AGI)?",
+      "Describe a time you pursued a high-risk technical research path that eventually failed, and what you learned.",
+      "Why OpenAI?"
+    ],
+    "gd": [
+      "Should AI model training data be copyrighted?",
+      "Will the automation of cognitive tasks improve or diminish human capability?"
+    ],
+    "coding_topics": ["Vector Algebra Coding", "Dynamic Programming", "Low-Level Optimization", "Matrix Mathematics"],
+    "concepts": ["Transformer Attention", "GPU Memory Optimization", "Reinforcement Learning"]
+  },
+  "SpaceX": {
+    "patterns": "Deep embedded technical rounds, hardware integration, real-time concurrency programming, and intense mission alignment.",
+    "strategy": "Master real-time operating systems (RTOS), C++ optimization, multithreading, and aerospace data streaming.",
+    "rejection_reasons": ["Failure to debug low-level concurrency hazards", "Weak system-level C++ foundations", "Lack of intense mission alignment"],
+    "technical": [
+      "How would you design a real-time fault-tolerant flight telemetry streaming system?",
+      "Explain how you would prevent race conditions and deadlock hazards in an RTOS embedded framework.",
+      "How do you implement low-overhead memory allocations in highly critical real-time code?"
+    ],
+    "hr": [
+      "SpaceX is known for its intense pace and massive goals. How do you maintain focus and manage burnout?",
+      "Tell me about a time you solved an extremely difficult engineering problem with very limited resources.",
+      "Why is colonizing Mars important to you?"
+    ],
+    "gd": [
+      "Private aerospace companies vs. government-funded space exploration.",
+      "Should global satellite coverage networks be regulated internationally?"
+    ],
+    "coding_topics": ["C++ Threading", "Low-level Array Operations", "Memory Management", "Geospatial coordinate calculations"],
+    "concepts": ["Real-Time Operating Systems", "Embedded Concurrency Safety", "Fault-Tolerant Systems"]
+  }
+}

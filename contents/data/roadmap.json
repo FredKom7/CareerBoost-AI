@@ -1,0 +1,382 @@
+{
+  "Python": {
+    "Beginner": {
+      "steps": ["Syntax & Variables", "Control Flow (If/Else, Loops)", "Functions & Modules"],
+      "youtube": "https://www.youtube.com/watch?v=rfscVS0vtbw",
+      "duration": "2 Weeks",
+      "platforms": ["HackerRank Python Track", "LeetCode Easy"],
+      "books": [
+        { "title": "Python Crash Course", "author": "Eric Matthes" }
+      ],
+      "courses": [
+        { "title": "Python for Everybody Specialization", "platform": "Coursera", "url": "https://www.coursera.org/specializations/python" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["List Comprehensions", "Error Handling", "File I/O", "OOP Basics"],
+      "youtube": "https://www.youtube.com/watch?v=HGOBQPFzWKo",
+      "duration": "3 Weeks",
+      "platforms": ["LeetCode Medium", "Codewars"],
+      "books": [
+        { "title": "Fluent Python", "author": "Luciano Ramalho" }
+      ],
+      "courses": [
+        { "title": "Google IT Automation with Python", "platform": "Coursera", "url": "https://www.coursera.org/professional-certificates/google-it-automation" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Decorators & Generators", "Multithreading", "Web Frameworks (Flask/Django)", "Data Science Libraries"],
+      "youtube": "https://www.youtube.com/watch?v=f79mQHAg_S4",
+      "duration": "4 Weeks",
+      "platforms": ["LeetCode Hard", "GitHub Open Source"],
+      "books": [
+        { "title": "Effective Python", "author": "Brett Slatkin" }
+      ],
+      "courses": [
+        { "title": "Advanced Python Programming Masterclass", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    }
+  },
+  "React": {
+    "Beginner": {
+      "steps": ["JSX & Elements", "Components & Props", "State with useState"],
+      "youtube": "https://www.youtube.com/watch?v=SqcY0GlETPk",
+      "duration": "2 Weeks",
+      "platforms": ["FreeCodeCamp React Course"],
+      "books": [
+        { "title": "The Road to React", "author": "Robin Wieruch" }
+      ],
+      "courses": [
+        { "title": "React - The Complete Guide", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["useEffect & Lifecycle", "Handling Forms", "Context API", "React Router"],
+      "youtube": "https://www.youtube.com/watch?v=0ZJgIjIuY7U",
+      "duration": "3 Weeks",
+      "platforms": ["Frontend Mentor", "Build a Todo App"],
+      "books": [
+        { "title": "React Key Concepts", "author": "Maximilian Schwarzmüller" }
+      ],
+      "courses": [
+        { "title": "Modern React with Redux", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Custom Hooks", "Redux/Zustand State Management", "Next.js Basics", "Performance Optimization"],
+      "youtube": "https://www.youtube.com/watch?v=7Xf87yv8o2s",
+      "duration": "4 Weeks",
+      "platforms": ["Build a SaaS Dashboard", "React Query"],
+      "books": [
+        { "title": "Pro React 16", "author": "Adam Freeman" }
+      ],
+      "courses": [
+        { "title": "React Advanced Guide", "platform": "Coursera", "url": "https://www.coursera.org/" }
+      ]
+    }
+  },
+  "SQL": {
+    "Beginner": {
+      "steps": ["SELECT, FROM, WHERE", "Basic Joins", "Aggregate Functions (SUM, AVG)"],
+      "youtube": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+      "duration": "1 Week",
+      "platforms": ["SQLZoo", "HackerRank SQL"],
+      "books": [
+        { "title": "SQL Queries for Mere Mortals", "author": "John Viescas" }
+      ],
+      "courses": [
+        { "title": "SQL for Data Science", "platform": "Coursera", "url": "https://www.coursera.org/learn/sql-for-data-science" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Complex Joins", "Subqueries", "Group By & Having", "Views"],
+      "youtube": "https://www.youtube.com/watch?v=7S_tz1z_5bA",
+      "duration": "2 Weeks",
+      "platforms": ["LeetCode SQL 50", "Stratascratch"],
+      "books": [
+        { "title": "SQL Practice Problems", "author": "Sylvia Moestl Vasilik" }
+      ],
+      "courses": [
+        { "title": "The Complete SQL Bootcamp", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Window Functions", "Stored Procedures", "Indexing & Optimization", "Database Design"],
+      "youtube": "https://www.youtube.com/watch?v=8uNb_Vz35f8",
+      "duration": "3 Weeks",
+      "platforms": ["Advanced SQL Challenges", "Kaggle Databases"],
+      "books": [
+        { "title": "High Performance MySQL", "author": "Silvia Botros" }
+      ],
+      "courses": [
+        { "title": "Advanced SQL Database Administration", "platform": "Udacity", "url": "https://www.udacity.com/" }
+      ]
+    }
+  },
+  "Java": {
+    "Beginner": {
+      "steps": ["Java Syntax", "Data Types", "Arrays & Strings", "Basic OOP"],
+      "youtube": "https://www.youtube.com/watch?v=eIrMbLywj8M",
+      "duration": "2 Weeks",
+      "platforms": ["HackerRank Java", "CodingBat"],
+      "books": [
+        { "title": "Head First Java", "author": "Kathy Sierra" }
+      ],
+      "courses": [
+        { "title": "Java Programming Masterclass", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Collections Framework", "Exception Handling", "Generics", "Streams API"],
+      "youtube": "https://www.youtube.com/watch?v=grEKMHGYyz4",
+      "duration": "3 Weeks",
+      "platforms": ["LeetCode Java", "Mooc.fi Java Programming"],
+      "books": [
+        { "title": "Effective Java", "author": "Joshua Bloch" }
+      ],
+      "courses": [
+        { "title": "Java In-Depth", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Spring Boot", "Hibernate/JPA", "Microservices Architecture", "JVM Tuning"],
+      "youtube": "https://www.youtube.com/watch?v=9SGDpanrc8U",
+      "duration": "5 Weeks",
+      "platforms": ["Build a REST API", "Baeldung Tutorials"],
+      "books": [
+        { "title": "Java Concurrency in Practice", "author": "Brian Goetz" }
+      ],
+      "courses": [
+        { "title": "Spring Boot & Microservices", "platform": "Coursera", "url": "https://www.coursera.org/" }
+      ]
+    }
+  },
+  "Machine Learning": {
+    "Beginner": {
+      "steps": ["Linear Regression", "Logistic Regression", "Numpy & Pandas"],
+      "youtube": "https://www.youtube.com/watch?v=GwIo3gDZCVQ",
+      "duration": "3 Weeks",
+      "platforms": ["Kaggle Intro to ML", "Scikit-Learn Docs"],
+      "books": [
+        { "title": "Hands-On Machine Learning", "author": "Aurélien Géron" }
+      ],
+      "courses": [
+        { "title": "Machine Learning Specialization", "platform": "Coursera", "url": "https://www.coursera.org/specializations/machine-learning-introduction" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Decision Trees", "Random Forests", "SVM", "Model Evaluation"],
+      "youtube": "https://www.youtube.com/watch?v=9f-GarcDY58",
+      "duration": "4 Weeks",
+      "platforms": ["Kaggle Intermediate ML", "UCI Repository Projects"],
+      "books": [
+        { "title": "An Introduction to Statistical Learning", "author": "Gareth James" }
+      ],
+      "courses": [
+        { "title": "Applied Data Science with Python", "platform": "Coursera", "url": "https://www.coursera.org/specializations/data-science-python" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Deep Learning with PyTorch", "Natural Language Processing", "Computer Vision", "Deployment"],
+      "youtube": "https://www.youtube.com/watch?v=vOppz3XoXQE",
+      "duration": "6 Weeks",
+      "platforms": ["Fast.ai", "Papers with Code"],
+      "books": [
+        { "title": "Deep Learning", "author": "Ian Goodfellow" }
+      ],
+      "courses": [
+        { "title": "Deep Learning Specialization", "platform": "Coursera", "url": "https://www.coursera.org/specializations/deep-learning" }
+      ]
+    }
+  },
+  "System Design": {
+    "Beginner": {
+      "steps": ["Scalability Fundamentals", "Client-Server Model", "DNS & Load Balancers"],
+      "youtube": "https://www.youtube.com/watch?v=m8Iof-a7V0g",
+      "duration": "2 Weeks",
+      "platforms": ["System Design Primer", "ByteByteGo"],
+      "books": [
+        { "title": "System Design Interview – An insider's guide", "author": "Alex Xu" }
+      ],
+      "courses": [
+        { "title": "System Design Fundamentals", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Caching Strategies (Redis/Memcached)", "SQL vs NoSQL Databases", "Database Sharding & Replication"],
+      "youtube": "https://www.youtube.com/watch?v=twn7_7Gsk78",
+      "duration": "3 Weeks",
+      "platforms": ["Educative System Design", "LeetCode System Design"],
+      "books": [
+        { "title": "Designing Data-Intensive Applications", "author": "Martin Kleppmann" }
+      ],
+      "courses": [
+        { "title": "Pragmatic System Design", "platform": "Educative", "url": "https://www.educative.io/" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["CAP Theorem & Consistency Models", "Consistent Hashing Algorithms", "Message Queues (Kafka)", "Designing Netflix/Uber Architecture"],
+      "youtube": "https://www.youtube.com/watch?v=Be7O35He4UY",
+      "duration": "4 Weeks",
+      "platforms": ["InfoQ Architecture", "SRE Book"],
+      "books": [
+        { "title": "Patterns of Enterprise Application Architecture", "author": "Martin Fowler" }
+      ],
+      "courses": [
+        { "title": "Software Architecture & Large-Scale Systems", "platform": "Coursera", "url": "https://www.coursera.org/" }
+      ]
+    }
+  },
+  "Data Structures": {
+    "Beginner": {
+      "steps": ["Arrays & ArrayLists", "Singly & Doubly Linked Lists", "Stacks & Queues"],
+      "youtube": "https://www.youtube.com/watch?v=RBSGKlAboiM",
+      "duration": "2 Weeks",
+      "platforms": ["LeetCode Stack/Queue", "HackerRank Data Structures"],
+      "books": [
+        { "title": "A Common-Sense Guide to Data Structures and Algorithms", "author": "Jay Wengrow" }
+      ],
+      "courses": [
+        { "title": "Data Structures and Algorithms Specialization", "platform": "Coursera", "url": "https://www.coursera.org/specializations/data-structures-algorithms" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Hash Tables & Collision Handling", "Binary Trees & BSTs", "Heaps & Priority Queues"],
+      "youtube": "https://www.youtube.com/watch?v=71K77kigXn0",
+      "duration": "3 Weeks",
+      "platforms": ["LeetCode Tree tag", "LeetCode Heap tag"],
+      "books": [
+        { "title": "Problem Solving with Algorithms and Data Structures", "author": "Brad Miller" }
+      ],
+      "courses": [
+        { "title": "Algorithms, Part I (Princeton)", "platform": "Coursera", "url": "https://www.coursera.org/learn/algorithms-part1" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Trie Data Structures", "Segment Trees & Fenwick Trees", "Graph Adjacency Lists/Matrices"],
+      "youtube": "https://www.youtube.com/watch?v=t0Cq6tVMRBA",
+      "duration": "4 Weeks",
+      "platforms": ["LeetCode Hard Problems", "GeeksforGeeks Advanced DS"],
+      "books": [
+        { "title": "Introduction to Algorithms", "author": "Thomas H. Cormen" }
+      ],
+      "courses": [
+        { "title": "Algorithms, Part II (Princeton)", "platform": "Coursera", "url": "https://www.coursera.org/learn/algorithms-part2" }
+      ]
+    }
+  },
+  "Algorithms": {
+    "Beginner": {
+      "steps": ["Binary Search", "Basic Sorting (Bubble, Insertion, Selection)", "Big O Notation & Time Complexity"],
+      "youtube": "https://www.youtube.com/watch?v=0IAPZzGSbME",
+      "duration": "2 Weeks",
+      "platforms": ["LeetCode Sorting", "Codewars Sorting"],
+      "books": [
+        { "title": "Grokking Algorithms", "author": "Aditya Bhargava" }
+      ],
+      "courses": [
+        { "title": "Algorithms Specialization (Stanford)", "platform": "Coursera", "url": "https://www.coursera.org/specializations/algorithms" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Recursion & Backtracking", "DFS & BFS Traversal", "Greedy Algorithms", "Divide and Conquer (Merge/QuickSort)"],
+      "youtube": "https://www.youtube.com/watch?v=pcYgKFgn1G4",
+      "duration": "4 Weeks",
+      "platforms": ["LeetCode DFS/BFS", "LeetCode Greedy"],
+      "books": [
+        { "title": "The Algorithm Design Manual", "author": "Steven Skiena" }
+      ],
+      "courses": [
+        { "title": "Data Structures and Algorithms Nanodegree", "platform": "Udacity", "url": "https://www.udacity.com/" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Dynamic Programming (DP)", "Dijkstra's & A* Search", "Kruskal's & Prim's Minimum Spanning Tree"],
+      "youtube": "https://www.youtube.com/watch?v=KeqS6t6V7-I",
+      "duration": "5 Weeks",
+      "platforms": ["LeetCode Dynamic Programming", "HackerRank Advanced Algorithms"],
+      "books": [
+        { "title": "Introduction to Algorithms", "author": "Thomas H. Cormen" }
+      ],
+      "courses": [
+        { "title": "Advanced Algorithms & Complexity", "platform": "Coursera", "url": "https://www.coursera.org/learn/advanced-algorithms" }
+      ]
+    }
+  },
+  "AWS": {
+    "Beginner": {
+      "steps": ["Virtual Servers with EC2", "Object Storage with S3", "IAM Roles & Resource Security Policies"],
+      "youtube": "https://www.youtube.com/watch?v=SOTamWNgDKc",
+      "duration": "2 Weeks",
+      "platforms": ["AWS Free Tier Labs", "Qwiklabs"],
+      "books": [
+        { "title": "AWS Certified Cloud Practitioner Study Guide", "author": "Ben Piper" }
+      ],
+      "courses": [
+        { "title": "AWS Certified Cloud Practitioner Course", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Managed Relational DBs (RDS)", "Serverless Computing (Lambda)", "Auto-Scaling & Load Balancing"],
+      "youtube": "https://www.youtube.com/watch?v=Ia-UEYYR44s",
+      "duration": "3 Weeks",
+      "platforms": ["AWS Serverless Workshops", "A Cloud Guru"],
+      "books": [
+        { "title": "AWS Certified Solutions Architect Study Guide", "author": "David Clinton" }
+      ],
+      "courses": [
+        { "title": "AWS Solutions Architect Associate Masterclass", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Global Content Delivery (CloudFront)", "NoSQL scaling with DynamoDB", "Container orchestration (ECS/EKS)"],
+      "youtube": "https://www.youtube.com/watch?v=47nF4d86bqc",
+      "duration": "4 Weeks",
+      "platforms": ["AWS DevOps Labs", "EKS Workshops"],
+      "books": [
+        { "title": "AWS Certified Solutions Architect Professional", "author": "Zeal Vora" }
+      ],
+      "courses": [
+        { "title": "AWS Solutions Architect Professional Bootcamp", "platform": "Udemy", "url": "https://www.udemy.com/" }
+      ]
+    }
+  },
+  "Communication": {
+    "Beginner": {
+      "steps": ["Active Listening and Feedback Loops", "Clear Written/Email Articulation", "Structuring Explanations"],
+      "youtube": "https://www.youtube.com/watch?v=HAnw168huqA",
+      "duration": "2 Weeks",
+      "platforms": ["Toastmasters International", "Grammarly Business"],
+      "books": [
+        { "title": "How to Win Friends and Influence People", "author": "Dale Carnegie" }
+      ],
+      "courses": [
+        { "title": "Introduction to Professional Communication", "platform": "Coursera", "url": "https://www.coursera.org/learn/professional-communication" }
+      ]
+    },
+    "Intermediate": {
+      "steps": ["Technical Presentation Skills", "The STAR Method for Behavioral Interviews", "Resolving Conflicts constructively"],
+      "youtube": "https://www.youtube.com/watch?v=d_kU3ZInWb0",
+      "duration": "2 Weeks",
+      "platforms": ["Mock Behavioral Interviews", "Presentation Practices"],
+      "books": [
+        { "title": "Crucial Conversations", "author": "Joseph Grenny" }
+      ],
+      "courses": [
+        { "title": "Effective Communication Specialization", "platform": "Coursera", "url": "https://www.coursera.org/specializations/effective-communication" }
+      ]
+    },
+    "Advanced": {
+      "steps": ["Negotiation and Strategic Persuasion", "Communicating to Executives", "Leadership through Communication"],
+      "youtube": "https://www.youtube.com/watch?v=R39o_nK7Feg",
+      "duration": "3 Weeks",
+      "platforms": ["Executive Pitch Practices", "Leadership Coaching"],
+      "books": [
+        { "title": "Never Split the Difference", "author": "Chris Voss" }
+      ],
+      "courses": [
+        { "title": "Strategic Communication & Leadership", "platform": "Coursera", "url": "https://www.coursera.org/" }
+      ]
+    }
+  }
+}
