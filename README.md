@@ -177,13 +177,8 @@ python app.py
 ## 👨‍💻 Author
 
 Freddy Kom
-
 Computer Science Engineering Student
-
 Full Stack Developer
 
-AI Enthusiast
-
 ---
-
 ⭐ If you find this project useful, consider giving it a star.
