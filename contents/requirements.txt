@@ -2,4 +2,6 @@ Flask
 pdfplumber
 nltk
 spacy
-google-generativeai
+google-genai
+openai
+python-dotenv

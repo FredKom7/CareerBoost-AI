@@ -434,6 +434,7 @@
       font-weight: 800;
       background: linear-gradient(to right, #fff, var(--accent));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -902,7 +903,7 @@
           <div class="topbar-avatar">🤖</div>
           <div class="topbar-info">
             <h2>Career AI Coach</h2>
-            <p>Online — Ready to assist</p>
+            <p>Online — Gemini 2.5 Flash ready</p>
           </div>
         </div>
         <div class="topbar-actions">
@@ -1017,12 +1018,12 @@
         if (data.openai) {
           statusTitle.textContent = 'AI Online';
           statusTitle.style.color = '#10b981';
-          statusSub.textContent = 'Full intelligence active';
+          statusSub.textContent = 'GPT-4o-mini active';
           statusDot.classList.remove('offline');
         } else if (data.gemini) {
           statusTitle.textContent = 'AI Online';
           statusTitle.style.color = '#10b981';
-          statusSub.textContent = 'Full intelligence active';
+          statusSub.textContent = 'Gemini 2.5 Flash active';
           statusDot.classList.remove('offline');
         } else {
           statusTitle.textContent = 'Smart Mode';

@@ -1,0 +1,5 @@
+[tool.pyrefly]
+python-interpreter-path = "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python314\\python.exe"
+site-package-path = [
+    "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python314\\Lib\\site-packages"
+]

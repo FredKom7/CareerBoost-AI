@@ -1,0 +1,16 @@
+{
+  "pythonPath": "C:\\Users\\fredd\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+  "pythonVersion": "3.14",
+  "pythonPlatform": "Windows",
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "venv",
+    "__pycache__"
+  ],
+  "reportMissingImports": false,
+  "reportMissingModuleSource": false,
+  "reportAttributeAccessIssue": false,
+  "reportOperatorIssue": false
+}
